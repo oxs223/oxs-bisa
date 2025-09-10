@@ -1,48 +1,261 @@
-oXs
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hubungi Kami</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Pesan Cinta</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
+            font-family: 'Poppins', sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            padding: 60px 40px;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+        
+        .tab {
+            display: none;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        
+        .tab.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .welcome-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #4a5568;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .love-message {
+            font-size: 48px;
+            font-weight: 600;
+            color: #e53e3e;
+            margin-bottom: 30px;
+            text-shadow: 0 2px 8px rgba(229, 62, 62, 0.3);
+            animation: heartbeat 2s ease-in-out infinite;
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+        
+        .subtitle {
+            font-size: 18px;
+            color: #718096;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn:active {
+            transform: translateY(-1px);
+        }
+        
+        .btn-success {
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+            box-shadow: 0 8px 20px rgba(72, 187, 120, 0.3);
+        }
+        
+        .btn-success:hover {
+            box-shadow: 0 12px 25px rgba(72, 187, 120, 0.4);
+        }
+        
+        .btn-danger {
+            background: linear-gradient(135deg, #f56565 0%, #e53e3e 100%);
+            box-shadow: 0 8px 20px rgba(245, 101, 101, 0.3);
+        }
+        
+        .btn-danger:hover {
+            box-shadow: 0 12px 25px rgba(245, 101, 101, 0.4);
+        }
+        
+        .heart-decoration {
+            position: absolute;
+            font-size: 20px;
+            color: #e53e3e;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .heart-1 {
+            top: 20px;
+            left: 30px;
+            animation-delay: 0s;
+        }
+        
+        .heart-2 {
+            top: 30px;
+            right: 40px;
+            animation-delay: -1s;
+        }
+        
+        .heart-3 {
+            bottom: 40px;
+            left: 40px;
+            animation-delay: -2s;
+        }
+        
+        .heart-4 {
+            bottom: 30px;
+            right: 30px;
+            animation-delay: -0.5s;
+        }
+        
+        .final-message {
+            font-size: 24px;
+            color: #4a5568;
+            margin-bottom: 30px;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+        
+        .sparkle {
+            display: inline-block;
+            animation: sparkle 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes sparkle {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.7;
+                transform: scale(1.2);
+            }
         }
     </style>
 </head>
-<body class="flex items-center justify-center min-h-screen p-4">
-    <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full text-center">
-        <h1 class="text-3xl font-bold text-gray-800 mb-2">Hubungi Kami</h1>
-        <p class="text-gray-600 mb-8">Pilih platform untuk terhubung dengan kami</p>
+<body>
+    <div class="container">
+        <!-- Dekorasi hati -->
+        <div class="heart-decoration heart-1">💖</div>
+        <div class="heart-decoration heart-2">💕</div>
+        <div class="heart-decoration heart-3">💗</div>
+        <div class="heart-decoration heart-4">💝</div>
         
-        <div class="space-y-4">
-            <!-- Discord Button -->
-            <a href="https://discord.gg/eV772uCZeD" 
-               target="_blank" 
-               class="flex items-center justify-center w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
-                <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
-                </svg>
-                Bergabung di Discord
-            </a>
-            
-            <!-- WhatsApp Button -->
-            <a href="https://wa.me/+" 
-               target="_blank" 
-               class="flex items-center justify-center w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
-                <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
-                </svg>
-                Chat via WhatsApp
-            </a>
+        <!-- Tab 1: Halaman Awal -->
+        <div class="tab active" id="tab1">
+            <h1 class="welcome-title">Pesan Spesial Untukmu</h1>
+            <p class="subtitle">Ada sesuatu yang ingin kusampaikan...</p>
+            <button class="btn" onclick="showTab('tab2')">Klik Disini 💕</button>
         </div>
         
-        <div class="mt-8 text-sm text-gray-500">
-            <p>Kami siap membantu Anda 24/7</p>
+        <!-- Tab 2: lanjut -->
+        <div class="tab" id="tab2">
+            <div class="love-message">lanjut</div>
+            <p class="subtitle">Perasaan ini tulus dari hatiku yang paling dalam</p>
+            <button class="btn btn-success" onclick="showTab('tab3')">Lanjut 💖</button>
+        </div>
+        
+        <!-- Tab 3: ruslan suka rahma -->
+        <div class="tab" id="tab3">
+            <div class="love-message">ruslan suka rahma</div>
+            <p class="subtitle">Kamu adalah segalanya bagiku</p>
+            <button class="btn btn-danger" onclick="showTab('tab4')">Selesai ✨</button>
+        </div>
+        
+        <!-- Tab 4: Pesan Akhir -->
+        <div class="tab" id="tab4">
+            <div class="final-message">
+                <span class="sparkle">✨</span> 
+                Terima kasih sudah membaca pesan cintaku 
+                <span class="sparkle">✨</span>
+            </div>
+            <div class="love-message" style="font-size: 36px;">
+                Semoga hari-harimu selalu bahagia! 🌟
+            </div>
+            <button class="btn" onclick="showTab('tab1')">Mulai Lagi 🔄</button>
         </div>
     </div>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97cf6e3052ebfe84',t:'MTc1NzUxMjYwNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+
+    <script>
+        function showTab(tabId) {
+            // Sembunyikan semua tab
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Tampilkan tab yang dipilih
+            document.getElementById(tabId).classList.add('active');
+        }
+        
+        // Efek tambahan untuk dekorasi hati
+        document.addEventListener('DOMContentLoaded', function() {
+            const hearts = document.querySelectorAll('.heart-decoration');
+            hearts.forEach((heart, index) => {
+                heart.style.animationDelay = `-${index * 0.5}s`;
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97cfee91f6605f5f',t:'MTc1NzUxNzg2My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
